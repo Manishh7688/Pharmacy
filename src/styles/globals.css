@@ -1,0 +1,295 @@
+@import "tailwindcss";
+
+:root {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* Attractive Modern Pharma Color Palette - same as before */
+  --primary: #0F172A;
+  --primary-light: #1E2937;
+  --accent: #0F766E;
+  --accent-light: #14B8A6;
+  --accent-foreground: #ffffff;
+  --bg: #ffffff;
+  --surface: #f8fafc;
+  --surface-2: #f1f5f9;
+  --border: #e2e8f0;
+  --text: #0f172a;
+  --text-muted: #475569;
+  --success: #10b981;
+}
+
+body {
+  font-family: var(--font-geist-sans);
+}
+
+/* ... (paste the full previous globals.css content here for continuity) */
+
+/* Modern Navbar */
+.nav-link {
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.nav-link:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: linear-gradient(to right, var(--accent), var(--accent-light));
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover:after,
+.nav-link.active:after {
+  width: 100%;
+}
+
+/* Hero */
+.hero-bg {
+  background: linear-gradient(135deg, #0F172A 0%, #1e2937 100%);
+}
+
+/* Cards */
+.modern-card {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.2s cubic-bezier(0.4, 0.0, 0.2, 1),
+              border-color 0.2s ease;
+  border: 1px solid var(--border);
+}
+
+.modern-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  border-color: #cbd5e1;
+}
+
+/* Product Cards */
+.product-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.15);
+}
+
+/* Buttons with enhanced animations */
+.btn-primary {
+  background: var(--accent);
+  color: white;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:hover {
+  background: #115e59;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgb(15 118 110 / 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-secondary {
+  background: white;
+  color: var(--primary);
+  border: 1px solid var(--border);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-secondary:hover {
+  background: var(--surface);
+  border-color: #94a3b8;
+  transform: translateY(-1px);
+}
+
+.btn-secondary:active {
+  transform: scale(0.98);
+}
+
+/* Add a subtle lift to all .btn elements */
+.btn {
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.btn:active {
+  transform: scale(0.985);
+}
+
+/* Section Headers */
+.section-header {
+  position: relative;
+  display: inline-block;
+}
+
+.section-header:after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(to right, var(--accent), var(--accent-light));
+  border-radius: 3px;
+}
+
+/* FAQ Accordion */
+.faq-question {
+  transition: all 0.2s ease;
+}
+
+.faq-question:hover {
+  color: var(--accent);
+}
+
+/* Stats */
+.stat-number {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Form Inputs */
+.input-modern {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 15px;
+  transition: all 0.2s ease;
+  background: white;
+}
+
+.input-modern:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.1);
+}
+
+.input-modern::placeholder {
+  color: #94a3b8;
+}
+
+/* Category Tabs */
+.category-tab {
+  padding: 8px 20px;
+  border-radius: 9999px;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.category-tab.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.category-tab:not(.active) {
+  background: var(--surface);
+  color: var(--text-muted);
+  border-color: var(--border);
+}
+
+.category-tab:not(.active):hover {
+  background: #e2e8f0;
+  color: var(--text);
+}
+
+/* Floating WhatsApp */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  width: 56px;
+  height: 56px;
+  background: #25D366;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.08);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.15);
+}
+
+/* Testimonials */
+.testimonial {
+  position: relative;
+}
+
+.testimonial:before {
+  content: '“';
+  position: absolute;
+  top: -10px;
+  left: 24px;
+  font-size: 120px;
+  font-family: serif;
+  color: #e2e8f0;
+  line-height: 1;
+  z-index: -1;
+}
+
+/* Product Modal */
+.modal {
+  animation: modalPop 0.2s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+@keyframes modalPop {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Dashboard specific styles */
+.dashboard-sidebar {
+  background: #0F172A;
+  color: #e2e8f0;
+}
+
+.dashboard-card {
+  @apply bg-white border border-slate-200 rounded-2xl p-6 shadow-sm;
+}
+
+/* Enhanced Responsive Styles */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.75rem;
+    line-height: 1.05;
+  }
+  
+  .nav-link {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 2.35rem;
+  }
+  
+  .modern-card, .product-card {
+    padding: 1.25rem;
+  }
+}
+
+/* Prevent horizontal overflow globally */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Better table responsiveness already handled per component */
