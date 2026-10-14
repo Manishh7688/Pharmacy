@@ -1,222 +1,256 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { 
-  ShieldCheck, Truck, Award, Users, ArrowRight, 
-  CheckCircle, Star 
+import {
+  ArrowRight,
+  Star,
+  ShieldCheck,
+  Truck,
+  FileText,
+  ThermometerSnowflake,
+  Sparkles,
+  Phone,
+  CheckCircle2,
+  Flame,
 } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-
-const stats = [
-  { number: "10+", label: "Years of Excellence" },
-  { number: "5,000+", label: "Products in Stock" },
-  { number: "250+", label: "Happy Clients" },
-  { number: "8", label: "States Served" },
-];
-
-const whyUs = [
-  {
-    icon: ShieldCheck,
-    title: "100% Genuine Products",
-    desc: "Sourced directly from leading manufacturers & authorized distributors with full batch traceability.",
-  },
-  {
-    icon: Truck,
-    title: "Reliable Cold Chain Logistics",
-    desc: "Temperature-controlled delivery across Northeast India ensuring product integrity.",
-  },
-  {
-    icon: Award,
-    title: "Licensed & Certified",
-    desc: "Valid Drug License, GST, ISO 9001:2015 certified wholesaler based in Guwahati.",
-  },
-  {
-    icon: Users,
-    title: "Dedicated Support",
-    desc: "Experienced team providing personalized service, credit facilities & timely updates.",
-  },
-];
-
-const featuredProducts = [
-  { name: "Antibiotics Range", category: "Prescription", count: "850+" },
-  { name: "Cardiovascular", category: "Chronic Care", count: "620+" },
-  { name: "Analgesics & Anti-inflammatory", category: "Pain Management", count: "480+" },
-  { name: "Anti-Diabetic", category: "Chronic Care", count: "310+" },
-  { name: "Gastrointestinal", category: "Prescription", count: "290+" },
-  { name: "OTC & Nutraceuticals", category: "Consumer", count: "1,200+" },
-];
+import {
+  DentalkartHeroBanner,
+  DentalkartTrustBar,
+  DentalkartCategoryStrip,
+  DentalkartBrandsSection,
+  DentalkartProductCard,
+  dentalkartPharmaProducts,
+} from "@/components/widgets/DentalkartWidgets";
 
 const testimonials = [
   {
     name: "Ramesh Agarwal",
-    role: "Owner, City Medicos, Guwahati",
-    quote: "Maa Bhagwati has been our most reliable wholesaler for the last 6 years. Excellent stock availability and very competitive pricing.",
+    role: "Owner, City Medicos • Guwahati",
+    quote:
+      "Maa Bhagwati has been our #1 wholesaler for 6 years. Their PTR rates, 10+1 trade schemes, and same-day Pan Bazaar dispatch work just like a modern online medical store.",
     rating: 5,
+    tag: "Verified Pharmacy Partner",
   },
   {
     name: "Dr. Anjali Sharma",
-    role: "Director, Care Hospital, Silchar",
-    quote: "Their cold chain management is outstanding. We never worry about the quality of temperature-sensitive injectables they supply.",
+    role: "Medical Director, Care Hospital • Silchar",
+    quote:
+      "We order our surgical sutures, ICU antibiotics, and cold-chain insulins in bulk lots. Every box arrives with HSN GST invoices and intact thermal indicators.",
     rating: 5,
+    tag: "Institutional Buyer",
   },
   {
     name: "Pranab Jyoti Das",
-    role: "Proprietor, Health Point Pharmacy, Dibrugarh",
-    quote: "Prompt delivery even in remote areas of Upper Assam. The team is extremely responsive and professional.",
+    role: "Proprietor, Health Point Pharmacy • Dibrugarh",
+    quote:
+      "Overnight line-haul delivery to Upper Assam is super reliable. Having Dr. Morepen, Cipla, Sun Pharma, and Ethicon under one roof saves us hours of procurement.",
     rating: 5,
+    tag: "Upper Assam Partner",
   },
 ];
 
 export default function Home() {
+  const hotSellingProducts = dentalkartPharmaProducts.slice(0, 4);
+  const mostSearchedProducts = dentalkartPharmaProducts.slice(4, 8);
+
   return (
-    <>
+    <div className="min-h-screen bg-[#F4F7FB]">
       <Navbar />
 
-      {/* HERO */}
-      <section className="hero-bg text-white pt-20 pb-24 md:pt-24 md:pb-28">
-        <div className="max-w-5xl mx-auto px-6 text-center">
-          <div className="inline-block mb-4 px-4 py-1 rounded-full bg-white/10 text-sm font-medium tracking-wider">
-            ESTABLISHED 2015 • GUWAHATI, ASSAM
-          </div>
-          
-          <h1 className="hero-title text-5xl md:text-7xl font-semibold tracking-[-3.2px] leading-[0.96] mb-6">
-            Trusted Pharmaceutical<br />Wholesaler in Guwahati
-          </h1>
-          
-          <p className="max-w-2xl mx-auto text-xl md:text-2xl text-white/80 tracking-tight mb-10">
-            Quality medicines. Reliable delivery. Competitive prices.<br className="hidden md:block" /> 
-            Serving pharmacies, hospitals &amp; clinics across Northeast India.
-          </p>
+      {/* 1. DENTALKART HERO SLIDER + RIGHT PROMO CARDS */}
+      <DentalkartHeroBanner />
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/products" className="btn-primary px-10 py-4 rounded-2xl font-semibold text-lg inline-flex items-center justify-center gap-3">
-              Explore Our Products <ArrowRight className="w-5 h-5" />
-            </Link>
-            <Link href="/contact" className="btn-secondary px-9 py-4 rounded-2xl font-semibold text-lg border-white/70 text-white hover:bg-white hover:text-[#0F172A]">
-              Request a Quote
-            </Link>
-          </div>
+      {/* 2. DENTALKART 4-PILLAR TRUST BAR */}
+      <DentalkartTrustBar />
 
-          <div className="mt-8 text-xs tracking-widest text-white/50">DRUG LICENSED • GST REGISTERED • ISO CERTIFIED</div>
-        </div>
-      </section>
+      {/* 3. TOP CATEGORIES (SHOP BY IMAGE) */}
+      <DentalkartCategoryStrip />
 
-      {/* TRUST BAR / STATS */}
-      <section className="border-b border-slate-200 bg-white py-7">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8">
-            {stats.map((stat, i) => (
-              <div key={i} className="text-center">
-                <div className="text-4xl font-semibold tracking-tighter text-[#0F172A] stat-number">{stat.number}</div>
-                <div className="text-sm text-slate-500 mt-1 font-medium tracking-wide">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* WHY CHOOSE US */}
-      <section className="max-w-7xl mx-auto px-6 pt-20 pb-16">
-        <div className="text-center mb-12">
-          <div className="uppercase tracking-[2px] text-xs font-semibold text-[#0F766E] mb-3">THE MAA BHAGWATI DIFFERENCE</div>
-          <h2 className="text-4xl md:text-5xl font-semibold tracking-[-1.6px]">Why Leading Healthcare Providers<br />Choose Us</h2>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {whyUs.map((item, index) => (
-            <div key={index} className="modern-card bg-white p-8 rounded-3xl">
-              <div className="w-12 h-12 rounded-2xl bg-[#0F766E]/10 flex items-center justify-center mb-6">
-                <item.icon className="w-6 h-6 text-[#0F766E]" />
-              </div>
-              <h3 className="font-semibold text-2xl tracking-tight mb-3">{item.title}</h3>
-              <p className="text-slate-600 leading-relaxed text-[15px]">{item.desc}</p>
+      {/* 4. HOT SELLING WHOLESALE LOTS (DENTALKART PRODUCT GRID) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
+        <div className="flex items-center justify-between mb-5">
+          <div className="flex items-center gap-2.5">
+            <div className="w-9 h-9 rounded-xl bg-[#FFF7ED] border border-[#FED7AA] flex items-center justify-center">
+              <Flame className="w-5 h-5 text-[#EA580C]" />
             </div>
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+                Hot Selling Wholesale Lots
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-500">
+                Fastest-moving prescription antibiotics, sutures &amp; OTC packs with trade margins up to 75%
+              </p>
+            </div>
+          </div>
+          <Link
+            href="/products"
+            className="text-sm font-semibold text-[#1D4ED8] hover:underline inline-flex items-center gap-1"
+          >
+            <span>View All</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {hotSellingProducts.map((product) => (
+            <DentalkartProductCard key={product.id} product={product} />
           ))}
         </div>
       </section>
 
-      {/* FEATURED PRODUCTS PREVIEW */}
-      <section className="bg-[#f8fafc] py-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10">
-            <div>
-              <div className="text-[#0F766E] font-semibold tracking-widest text-xs">OUR RANGE</div>
-              <h2 className="text-4xl tracking-[-1.8px] font-semibold mt-1">Extensive Product Portfolio</h2>
+      {/* 5. TOP BRANDS SHOWCASE */}
+      <DentalkartBrandsSection />
+
+      {/* 6. DENTALKART MID-PAGE SPLIT PROMO BANNERS (1/2 STYLE) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* Left Banner: Cold-Chain Vault */}
+          <div className="rounded-2xl bg-gradient-to-r from-[#1B3B6F] to-[#0284C7] text-white p-6 sm:p-7 flex flex-col sm:flex-row items-center justify-between gap-5 shadow-xs">
+            <div className="space-y-2">
+              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-white/15 text-[11px] font-bold uppercase tracking-wider">
+                <ThermometerSnowflake className="w-3.5 h-3.5 text-[#38BDF8]" />
+                Cold-Chain +2°C to +8°C
+              </span>
+              <h3 className="text-xl sm:text-2xl font-bold leading-snug">
+                Vaccines, Insulins &amp; Critical Care Injectables
+              </h3>
+              <p className="text-xs sm:text-sm text-blue-100">
+                Dispatched in 72-hour validated gel-pack cold boxes with temperature logs.
+              </p>
+              <Link
+                href="/services"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white text-[#1B3B6F] text-xs font-bold mt-1 hover:bg-blue-50 transition"
+              >
+                <span>Explore Cold-Chain Logistics</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
             </div>
-            <Link href="/products" className="mt-4 md:mt-0 inline-flex items-center gap-2 text-[#0F766E] font-semibold group">
-              View complete catalogue <ArrowRight className="group-hover:translate-x-0.5 transition" />
-            </Link>
+            <img
+              src="https://r2dkmedia.dentalkart.com/media/catalog/product/1/a/1artboard_16.jpg?w=512"
+              alt="Cold Chain Medicines"
+              className="w-28 h-28 rounded-2xl bg-white p-2 object-contain shrink-0 shadow-md"
+            />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {featuredProducts.map((product, idx) => (
-              <Link 
-                key={idx} 
-                href="/products" 
-                className="product-card group bg-white border border-slate-200 rounded-3xl p-8 flex flex-col justify-between hover:border-[#0F766E]/40"
+          {/* Right Banner: Bulk Hospital & Surgical Consumables */}
+          <div className="rounded-2xl bg-gradient-to-r from-[#0F172A] to-[#1E3A8A] text-white p-6 sm:p-7 flex flex-col sm:flex-row items-center justify-between gap-5 shadow-xs">
+            <div className="space-y-2">
+              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#FF6B35] text-white text-[11px] font-bold uppercase tracking-wider">
+                <Sparkles className="w-3.5 h-3.5" />
+                Hospital &amp; Clinic Rate Contract
+              </span>
+              <h3 className="text-xl sm:text-2xl font-bold leading-snug">
+                Surgical Sutures, Disinfection Trays &amp; IV Disposables
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-300">
+                Ethicon Vicryl, Healthium, Polymed &amp; Steridex boxes at direct depot rates.
+              </p>
+              <Link
+                href="/products"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#FF6B35] text-white text-xs font-bold mt-1 hover:bg-[#EA580C] transition"
+              >
+                <span>Shop Hospital Supplies</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+            <img
+              src="https://r2dkmedia.dentalkart.com/backend-media-uploads/HomepageImages/new.jpg?w=512"
+              alt="Hospital & Surgical Supplies"
+              className="w-28 h-28 rounded-2xl bg-white p-2 object-contain shrink-0 shadow-md"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* 7. MOST SEARCHED PRODUCTS (DENTALKART SECTION) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
+        <div className="flex items-center justify-between mb-5">
+          <div>
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+              Most Searched Formulations &amp; Surgicals
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-500">
+              High-demand daily restock items for retail pharmacies, dental clinics &amp; nursing homes
+            </p>
+          </div>
+          <Link
+            href="/products"
+            className="text-sm font-semibold text-[#1D4ED8] hover:underline inline-flex items-center gap-1"
+          >
+            <span>Explore All 5,240+ SKUs</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {mostSearchedProducts.map((product) => (
+            <DentalkartProductCard key={product.id} product={product} />
+          ))}
+        </div>
+      </section>
+
+      {/* 8. DENTALKART BENEFITS & PARTNER REVIEWS */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-10">
+        <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-wider text-[#1D4ED8]">
+                MAA BHAGWATI WHOLESALE BENEFITS
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-1">
+                Trusted by 250+ Pharmacies &amp; Hospitals in Northeast India
+              </h2>
+            </div>
+            <div className="flex flex-wrap gap-2 text-xs font-semibold">
+              <span className="px-3 py-1.5 rounded-full bg-green-50 text-green-700 border border-green-200 inline-flex items-center gap-1">
+                <CheckCircle2 className="w-3.5 h-3.5" /> 100% Genuine Products
+              </span>
+              <span className="px-3 py-1.5 rounded-full bg-blue-50 text-[#1D4ED8] border border-blue-200 inline-flex items-center gap-1">
+                <Truck className="w-3.5 h-3.5" /> Fast Pan-NE Delivery
+              </span>
+              <span className="px-3 py-1.5 rounded-full bg-orange-50 text-[#C2410C] border border-orange-200 inline-flex items-center gap-1">
+                <FileText className="w-3.5 h-3.5" /> GST Invoice Available
+              </span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {testimonials.map((t, index) => (
+              <div
+                key={index}
+                className="rounded-2xl bg-[#F8FAFC] border border-slate-200 p-6 flex flex-col justify-between"
               >
                 <div>
-                  <div className="text-xs font-semibold text-[#0F766E] tracking-[1px]">{product.category}</div>
-                  <div className="text-2xl font-semibold tracking-tight mt-3 group-hover:text-[#0F766E] transition-colors">{product.name}</div>
-                </div>
-                <div className="mt-8 flex items-baseline justify-between">
-                  <div>
-                    <span className="text-4xl font-semibold tabular-nums tracking-[-1.5px]">{product.count}</span>
-                    <span className="text-sm text-slate-500 ml-1">SKUs</span>
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex gap-0.5">
+                      {Array.from({ length: t.rating }).map((_, i) => (
+                        <Star
+                          key={i}
+                          className="w-4 h-4 fill-[#F59E0B] text-[#F59E0B]"
+                        />
+                      ))}
+                    </div>
+                    <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-blue-100 text-[#1B3B6F]">
+                      {t.tag}
+                    </span>
                   </div>
-                  <ArrowRight className="w-6 h-6 text-slate-300 group-hover:text-[#0F766E] transition" />
+                  <p className="text-sm text-slate-700 leading-relaxed">
+                    “{t.quote}”
+                  </p>
                 </div>
-              </Link>
+                <div className="mt-5 pt-3 border-t border-slate-200">
+                  <div className="font-bold text-sm text-slate-900">{t.name}</div>
+                  <div className="text-xs text-slate-500">{t.role}</div>
+                </div>
+              </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* TESTIMONIALS */}
-      <section className="max-w-6xl mx-auto px-6 py-20">
-        <div className="text-center mb-12">
-          <div className="text-[#0F766E] uppercase tracking-[2px] text-xs font-semibold mb-2">TRUSTED BY HEALTHCARE PROFESSIONALS</div>
-          <h2 className="text-4xl tracking-[-1.5px] font-semibold">What Our Clients Say</h2>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {testimonials.map((t, index) => (
-            <div key={index} className="testimonial modern-card bg-white p-8 rounded-3xl border border-slate-100">
-              <div className="flex gap-0.5 mb-5">
-                {Array.from({ length: t.rating }).map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-[#0F766E] text-[#0F766E]" />
-                ))}
-              </div>
-              <p className="text-[15px] leading-relaxed text-slate-600">“{t.quote}”</p>
-              <div className="mt-7">
-                <div className="font-semibold">{t.name}</div>
-                <div className="text-xs text-slate-500">{t.role}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* FINAL CTA */}
-      <section className="bg-[#0F172A] text-white py-16">
-        <div className="max-w-3xl mx-auto text-center px-6">
-          <h2 className="text-4xl font-semibold tracking-[-1.2px]">Ready to partner with a reliable wholesaler?</h2>
-          <p className="mt-4 text-lg text-white/70">Get in touch today for competitive pricing, bulk orders, and consistent supply.</p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-9">
-            <Link href="/contact" className="btn-primary px-9 py-4 rounded-2xl text-lg font-semibold inline-flex justify-center items-center gap-3">
-              Contact Sales Team
-            </Link>
-            <a href="tel:+919876543210" className="px-9 py-4 rounded-2xl border border-white/30 text-white hover:bg-white/10 font-semibold text-lg flex justify-center items-center">
-              Call Now: +91 98765 43210
-            </a>
           </div>
         </div>
       </section>
 
       <Footer />
-    </>
+    </div>
   );
 }

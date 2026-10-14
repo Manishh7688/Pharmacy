@@ -1,94 +1,191 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { CheckCircle, Users, Building2, Award } from "lucide-react";
+import Link from "next/link";
+import {
+  CheckCircle2,
+  Users,
+  Building2,
+  Award,
+  ThermometerSnowflake,
+  ShieldCheck,
+  ArrowRight,
+  Truck,
+} from "lucide-react";
 
 export const metadata = {
   title: "About Us",
-  description: "Learn about Maa Bhagwati Pharmaceuticals — a leading pharmaceutical wholesaler and distributor based in Pan Bazaar, Guwahati, Assam.",
+  description:
+    "Learn about Maa Bhagwati Pharmaceuticals — Northeast India's trusted B2B pharmaceutical wholesaler and distributor based in Pan Bazaar, Guwahati, Assam.",
 };
 
 const values = [
-  "Quality First — We never compromise on the authenticity and quality of medicines.",
-  "Customer Centric — Your success is our success. We go the extra mile for every client.",
-  "Transparency — Complete documentation, batch traceability, and clear communication.",
-  "Reliability — Consistent stock and on-time deliveries you can count on.",
+  {
+    title: "100% Genuine Depot Sourcing",
+    desc: "Every formulation is procured directly from authorized C&F depots of Dr. Morepen, Cipla, Sun Pharma, Abbott, and Ethicon with full batch traceability.",
+  },
+  {
+    title: "Validated Cold-Chain (+2°C to +8°C)",
+    desc: "Continuous temperature-monitored walk-in cold rooms and insulated gel-pack dispatch boxes for vaccines, insulins, and critical care biologics.",
+  },
+  {
+    title: "HSN-Mapped GST & Trade Margins",
+    desc: "Transparent wholesale PTR/PTS pricing, 10+1 trade schemes, and instant GST e-invoicing for retail pharmacies and hospitals.",
+  },
+  {
+    title: "Fast Pan-Northeast Fulfillment",
+    desc: "Same-day 4-hour delivery across Guwahati and overnight line-haul supply to all 8 Northeast Indian states.",
+  },
 ];
 
 export default function AboutPage() {
   return (
-    <>
+    <div className="min-h-screen bg-[#F4F7FB]">
       <Navbar />
 
-      <div className="bg-[#f8fafc] pt-14 pb-20">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <div className="uppercase text-[#0F766E] text-xs tracking-[3px] font-semibold mb-3">SINCE 2015</div>
-          <h1 className="text-6xl font-semibold tracking-[-2.4px]">About Maa Bhagwati Pharmaceuticals</h1>
-          <p className="mt-6 text-xl text-slate-600 max-w-3xl mx-auto">
-            A family-run pharmaceutical wholesaling business built on trust, quality, and deep roots in the Northeast.
-          </p>
+      {/* Dentalkart-Style Clean Medical Banner */}
+      <div className="bg-gradient-to-r from-[#1B3B6F] via-[#1D4ED8] to-[#0284C7] text-white py-12 sm:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 grid md:grid-cols-12 gap-8 items-center">
+          <div className="md:col-span-8 space-y-3">
+            <span className="inline-block px-3 py-1 rounded-full bg-white/15 text-xs font-bold tracking-wider uppercase text-[#FDE047]">
+              SINCE 2015 • ISO 9001:2015 CERTIFIED WHOLESALER
+            </span>
+            <h1 className="text-3xl sm:text-5xl font-bold tracking-tight leading-tight">
+              Northeast India’s Most Dependable B2B Pharmaceutical Store
+            </h1>
+            <p className="text-sm sm:text-lg text-blue-100 max-w-2xl leading-relaxed">
+              Stocking 5,240+ genuine formulations across 150+ trusted manufacturers, serving 250+ pharmacies, nursing homes, and hospitals from Pan Bazaar, Guwahati.
+            </p>
+          </div>
+          <div className="md:col-span-4 flex justify-center">
+            <div className="bg-white rounded-2xl p-4 shadow-xl border border-blue-100 max-w-xs w-full text-slate-900">
+              <img
+                src="https://r2dkmedia.dentalkart.com/backend-media-uploads/HomepageImages/new.jpg?w=512"
+                alt="Maa Bhagwati Pharma Inventory"
+                className="w-full h-40 object-contain rounded-xl bg-slate-50 p-2"
+              />
+              <div className="mt-3 text-center">
+                <div className="font-bold text-sm text-[#1B3B6F]">
+                  Pan Bazaar Central Hub
+                </div>
+                <div className="text-xs text-slate-500">
+                  Drug Control Dept. Assam Licensed
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-12 gap-12">
-          <div className="md:col-span-7">
-            <h2 className="font-semibold text-4xl tracking-[-1.5px] mb-6">Our Story</h2>
-            <div className="prose prose-slate max-w-none text-[15px] leading-relaxed text-slate-600">
-              <p>Maa Bhagwati Pharmaceuticals was founded in 2015 in the heart of Guwahati’s Pan Bazaar with a simple mission: to make high-quality, affordable medicines easily accessible to every pharmacy and healthcare institution in Assam and the Northeast.</p>
-              <p>Starting with a small warehouse and a handful of trusted suppliers, we have grown into one of the most respected pharmaceutical wholesalers in the region. Today we stock over 5,000 SKUs and proudly serve more than 250 pharmacies, hospitals, nursing homes, and clinics across 8 states.</p>
-              <p>Our commitment remains unchanged — genuine products, fair pricing, and reliable service delivered with personal care.</p>
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 space-y-12">
+        <div className="grid lg:grid-cols-12 gap-8 items-start">
+          <div className="lg:col-span-7 bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-4">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#1D4ED8]">
+              OUR STORY &amp; MISSION
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">
+              Empowering Pharmacies &amp; Hospitals with Seamless Digital-First Wholesale Supply
+            </h2>
+            <div className="space-y-3 text-sm sm:text-[15px] text-slate-600 leading-relaxed">
+              <p>
+                Founded in 2015 in the commercial heart of Guwahati’s Pan Bazaar, Maa Bhagwati Pharmaceuticals was built to solve the biggest challenge faced by pharmacies and hospitals across Assam and Northeast India: fragmented stock availability and unpredictable delivery timelines.
+              </p>
+              <p>
+                Inspired by modern clinical e-commerce platforms like Dentalkart, we combine a 5,240+ SKU central warehouse with transparent PTR/PTS wholesale pricing, live batch expiry visibility, and same-day dispatch.
+              </p>
+              <p>
+                From everyday antibiotics like Dr. Morepen Mormox-CV and chronic cardiac/diabetic medicines to Ethicon surgical sutures and +2°C to +8°C vaccines, we deliver 100% genuine stock straight to your counter.
+              </p>
+            </div>
+            <div className="pt-3 flex flex-wrap gap-3">
+              <Link
+                href="/products"
+                className="btn-primary px-6 py-3 rounded-xl text-xs sm:text-sm inline-flex items-center gap-2"
+              >
+                <span>Explore 5,240+ Products</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="/contact"
+                className="btn-orange px-6 py-3 rounded-xl text-xs sm:text-sm"
+              >
+                Apply for Dealership / Credit
+              </Link>
             </div>
           </div>
 
-          <div className="md:col-span-5">
-            <div className="bg-white border border-slate-200 rounded-3xl p-8 space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-[#0F766E]/10 flex items-center justify-center"><Building2 className="text-[#0F766E]" /></div>
-                <div>
-                  <div className="font-semibold">Headquartered in Guwahati</div>
-                  <div className="text-sm text-slate-500">Pan Bazaar, Assam</div>
+          <div className="lg:col-span-5 space-y-4">
+            {[
+              {
+                icon: Building2,
+                title: "Headquartered in Pan Bazaar, Guwahati",
+                sub: "Bishop Plaza, Col. J. Ali Road — connected to all Northeast transport corridors.",
+              },
+              {
+                icon: Users,
+                title: "250+ Active B2B Healthcare Partners",
+                sub: "Supplying retail pharmacies, dental & medical clinics, nursing homes, and ICU hospitals.",
+              },
+              {
+                icon: ThermometerSnowflake,
+                title: "Validated Cold-Chain Custody",
+                sub: "24/7 power-backed +2°C to +8°C cold rooms and insulated transit boxes.",
+              },
+              {
+                icon: Award,
+                title: "ISO 9001:2015 & GST Compliant",
+                sub: "Licensed by Drug Control Department, Assam with full HSN e-invoicing.",
+              },
+            ].map((item) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={item.title}
+                  className="bg-white border border-slate-200 rounded-2xl p-5 flex items-start gap-4 shadow-2xs"
+                >
+                  <div className="w-11 h-11 rounded-xl bg-[#EFF6FF] text-[#1D4ED8] flex items-center justify-center shrink-0">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="font-bold text-sm sm:text-base text-slate-900">
+                      {item.title}
+                    </div>
+                    <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                      {item.sub}
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-[#0F766E]/10 flex items-center justify-center"><Users className="text-[#0F766E]" /></div>
-                <div>
-                  <div className="font-semibold">250+ Active Clients</div>
-                  <div className="text-sm text-slate-500">Pharmacies • Hospitals • Clinics</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-[#0F766E]/10 flex items-center justify-center"><Award className="text-[#0F766E]" /></div>
-                <div>
-                  <div className="font-semibold">ISO 9001:2015 Certified</div>
-                  <div className="text-sm text-slate-500">Licensed by Drug Control Department, Assam</div>
-                </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </div>
 
-        <div className="mt-20 grid md:grid-cols-2 gap-6">
-          <div className="modern-card p-10 rounded-3xl bg-white">
-            <div className="font-semibold text-[#0F766E] text-sm tracking-widest mb-3">OUR MISSION</div>
-            <p className="text-xl leading-snug">To be the most trusted pharmaceutical distribution partner in Northeast India by delivering quality medicines with integrity, efficiency, and care.</p>
-          </div>
-          <div className="modern-card p-10 rounded-3xl bg-white">
-            <div className="font-semibold text-[#0F766E] text-sm tracking-widest mb-3">OUR VISION</div>
-            <p className="text-xl leading-snug">To build the most reliable and responsive pharmaceutical supply chain that empowers every healthcare provider in the region to serve patients better.</p>
-          </div>
-        </div>
-
-        <div className="mt-20">
-          <div className="text-center mb-8">
-            <div className="text-[#0F766E] uppercase tracking-[2px] text-sm font-semibold">OUR CORE VALUES</div>
-            <h3 className="text-3xl font-semibold tracking-tight mt-2">What Drives Us Every Day</h3>
+        {/* Core Pillars */}
+        <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8">
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#1D4ED8]">
+              THE MAA BHAGWATI PROMISE
+            </span>
+            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-1">
+              Why Healthcare Buyers Prefer Our Platform
+            </h3>
           </div>
 
           <div className="grid md:grid-cols-2 gap-4">
-            {values.map((value, idx) => (
-              <div key={idx} className="flex gap-4 bg-white p-7 rounded-2xl border border-slate-100">
-                <CheckCircle className="w-6 h-6 text-[#0F766E] shrink-0 mt-0.5" />
-                <p className="text-slate-600">{value}</p>
+            {values.map((v) => (
+              <div
+                key={v.title}
+                className="p-5 rounded-xl bg-[#F8FAFC] border border-slate-200 flex gap-3.5"
+              >
+                <CheckCircle2 className="w-5 h-5 text-[#16A34A] shrink-0 mt-0.5" />
+                <div>
+                  <h4 className="font-bold text-sm sm:text-base text-slate-900">
+                    {v.title}
+                  </h4>
+                  <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                    {v.desc}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -96,6 +193,6 @@ export default function AboutPage() {
       </div>
 
       <Footer />
-    </>
+    </div>
   );
 }

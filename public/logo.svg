@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 120" fill="none">
+  <defs>
+    <linearGradient id="navyShield" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1B3B6F"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+    <linearGradient id="cyanShield" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00A8E8"/>
+      <stop offset="100%" stop-color="#0284C7"/>
+    </linearGradient>
+    <linearGradient id="orangeBolt" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FF6B35"/>
+      <stop offset="100%" stop-color="#EA580C"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Shield Emblem -->
+  <g transform="translate(4, 0)">
+    <path d="M56 8 L16 22 V56 C16 84 33 104 56 113 V8 Z" fill="url(#navyShield)"/>
+    <path d="M56 8 L96 22 V56 C96 84 79 104 56 113 V8 Z" fill="url(#cyanShield)"/>
+    <path d="M56 18 L26 29 V55 C26 77 39 93 56 101 C73 93 86 77 86 55 V29 L56 18 Z" fill="#FFFFFF"/>
+    <path d="M46 34 H56 V82 H46 V68 H32 V48 H46 V34 Z" fill="#1B3B6F"/>
+    <path d="M56 34 H66 V48 H80 V68 H66 V82 H56 V34 Z" fill="#00A8E8"/>
+    <path d="M59 39 L45 59 H55 L51 77 L67 56 H57 L59 39 Z" fill="url(#orangeBolt)" stroke="#FFFFFF" stroke-width="1.5" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Brand Wordmark -->
+  <text x="118" y="64" fill="#1B3B6F" font-family="Poppins, sans-serif" font-weight="700" font-size="40" letter-spacing="-0.8">Maa Bhagwati</text>
+  <text x="120" y="94" fill="#00A8E8" font-family="Poppins, sans-serif" font-weight="700" font-size="18" letter-spacing="4.5">PHARMACEUTICALS</text>
+</svg>

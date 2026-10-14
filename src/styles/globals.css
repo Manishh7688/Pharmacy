@@ -1,295 +1,285 @@
 @import "tailwindcss";
 
 :root {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-poppins), var(--font-jakarta), system-ui, -apple-system, sans-serif;
+  --font-body: var(--font-jakarta), system-ui, -apple-system, sans-serif;
+  --font-mono-code: var(--font-mono), monospace;
 
-  /* Attractive Modern Pharma Color Palette - same as before */
-  --primary: #0F172A;
-  --primary-light: #1E2937;
-  --accent: #0F766E;
-  --accent-light: #14B8A6;
-  --accent-foreground: #ffffff;
-  --bg: #ffffff;
-  --surface: #f8fafc;
-  --surface-2: #f1f5f9;
-  --border: #e2e8f0;
-  --text: #0f172a;
+  /* Dentalkart-Inspired Medical E-Commerce Palette */
+  --dk-navy: #1B3B6F;
+  --dk-blue: #1D4ED8;
+  --dk-blue-dark: #1E3A8A;
+  --dk-cyan: #00A8E8;
+  --dk-cyan-soft: #E0F2FE;
+  --dk-orange: #FF6B35;
+  --dk-orange-hover: #EA580C;
+  --dk-green: #16A34A;
+  --dk-green-soft: #DCFCE7;
+  --dk-gold: #F59E0B;
+  --dk-gold-soft: #FEF3C7;
+  --dk-bg: #F4F7FB;
+  --dk-surface: #FFFFFF;
+  --dk-border: #E2E8F0;
+  --dk-text: #0F172A;
+  --dk-muted: #475569;
+
+  /* Legacy variable compatibility */
+  --primary: #1B3B6F;
+  --primary-light: #1D4ED8;
+  --accent: #FF6B35;
+  --accent-light: #00A8E8;
+  --bg: #F4F7FB;
+  --surface: #FFFFFF;
+  --border: #E2E8F0;
+  --text: #0F172A;
   --text-muted: #475569;
-  --success: #10b981;
 }
 
+html,
 body {
-  font-family: var(--font-geist-sans);
+  font-family: var(--font-poppins), var(--font-jakarta), sans-serif;
+  background-color: var(--dk-bg);
+  color: var(--dk-text);
+  overflow-x: hidden;
 }
 
-/* ... (paste the full previous globals.css content here for continuity) */
-
-/* Modern Navbar */
-.nav-link {
-  position: relative;
-  transition: color 0.2s ease;
+/* Dentalkart Typography Helpers */
+.font-heading {
+  font-family: var(--font-poppins), sans-serif;
 }
 
-.nav-link:after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -2px;
-  left: 0;
-  background: linear-gradient(to right, var(--accent), var(--accent-light));
-  transition: width 0.3s ease;
+.font-body {
+  font-family: var(--font-jakarta), sans-serif;
 }
 
-.nav-link:hover:after,
-.nav-link.active:after {
-  width: 100%;
+.font-mono-tech {
+  font-family: var(--font-mono), monospace;
+  letter-spacing: 0.04em;
 }
 
-/* Hero */
-.hero-bg {
-  background: linear-gradient(135deg, #0F172A 0%, #1e2937 100%);
+/* Dentalkart Clean E-Commerce Card */
+.dk-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  transition: all 0.22s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Cards */
-.modern-card {
-  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
-              box-shadow 0.2s cubic-bezier(0.4, 0.0, 0.2, 1),
-              border-color 0.2s ease;
-  border: 1px solid var(--border);
-}
-
-.modern-card:hover {
+.dk-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  border-color: #cbd5e1;
+  border-color: #93C5FD;
+  box-shadow: 0 14px 28px -6px rgba(29, 78, 216, 0.12);
 }
 
-/* Product Cards */
+/* Dentalkart Product Card */
 .product-card {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.product-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.15);
-}
-
-/* Buttons with enhanced animations */
-.btn-primary {
-  background: var(--accent);
-  color: white;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
   position: relative;
   overflow: hidden;
 }
 
-.btn-primary:hover {
-  background: #115e59;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 15px -3px rgb(15 118 110 / 0.3);
+.product-card:hover {
+  transform: translateY(-5px);
+  border-color: #3B82F6;
+  box-shadow: 0 18px 36px -10px rgba(27, 59, 111, 0.14);
 }
 
-.btn-primary:active {
-  transform: translateY(0) scale(0.98);
+.modern-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+  transition: all 0.22s ease;
+}
+
+.modern-card:hover {
+  transform: translateY(-3px);
+  border-color: #93C5FD;
+  box-shadow: 0 12px 24px -6px rgba(29, 78, 216, 0.1);
+}
+
+/* Dentalkart Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, #1D4ED8 0%, #1B3B6F 100%);
+  color: #FFFFFF;
+  font-weight: 600;
+  border: 1px solid #1E40AF;
+  box-shadow: 0 4px 12px rgba(29, 78, 216, 0.22);
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(29, 78, 216, 0.32);
+}
+
+.btn-orange {
+  background: linear-gradient(135deg, #FF6B35 0%, #EA580C 100%);
+  color: #FFFFFF;
+  font-weight: 600;
+  border: 1px solid #F97316;
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.25);
+  transition: all 0.2s ease;
+}
+
+.btn-orange:hover {
+  background: linear-gradient(135deg, #F97316 0%, #C2410C 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(255, 107, 53, 0.35);
 }
 
 .btn-secondary {
-  background: white;
-  color: var(--primary);
-  border: 1px solid var(--border);
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #FFFFFF;
+  color: #1B3B6F;
+  border: 1px solid #CBD5E1;
+  font-weight: 600;
+  transition: all 0.2s ease;
 }
 
 .btn-secondary:hover {
-  background: var(--surface);
-  border-color: #94a3b8;
-  transform: translateY(-1px);
+  background: #EFF6FF;
+  border-color: #3B82F6;
+  color: #1D4ED8;
 }
 
-.btn-secondary:active {
-  transform: scale(0.98);
+/* Dentalkart Badges */
+.dk-badge-bestseller {
+  background: #FFF7ED;
+  color: #C2410C;
+  border: 1px solid #FED7AA;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 6px;
 }
 
-/* Add a subtle lift to all .btn elements */
-.btn {
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
+.dk-badge-discount {
+  background: #DCFCE7;
+  color: #15803D;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 6px;
 }
 
-.btn:active {
-  transform: scale(0.985);
+.dk-badge-coin {
+  background: #FEF3C7;
+  color: #B45309;
+  border: 1px solid #FDE68A;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 9999px;
 }
 
-/* Section Headers */
-.section-header {
-  position: relative;
-  display: inline-block;
+.dk-badge-stock {
+  background: #FEE2E2;
+  color: #B91C1C;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 6px;
 }
 
-.section-header:after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  width: 48px;
-  height: 3px;
-  background: linear-gradient(to right, var(--accent), var(--accent-light));
-  border-radius: 3px;
-}
-
-/* FAQ Accordion */
-.faq-question {
-  transition: all 0.2s ease;
-}
-
-.faq-question:hover {
-  color: var(--accent);
-}
-
-/* Stats */
-.stat-number {
-  font-variant-numeric: tabular-nums;
-}
-
-/* Form Inputs */
+/* Dentalkart Search Input & Form Controls */
 .input-modern {
   width: 100%;
-  padding: 14px 16px;
-  border: 1px solid var(--border);
+  padding: 12px 16px;
+  border: 1.5px solid #CBD5E1;
   border-radius: 10px;
-  font-size: 15px;
+  font-size: 14px;
+  background: #FFFFFF;
+  color: #0F172A;
   transition: all 0.2s ease;
-  background: white;
 }
 
 .input-modern:focus {
   outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.1);
+  border-color: #1D4ED8;
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.12);
 }
 
 .input-modern::placeholder {
-  color: #94a3b8;
+  color: #94A3B8;
 }
 
-/* Category Tabs */
+/* Category Filter Tabs */
 .category-tab {
-  padding: 8px 20px;
+  padding: 8px 16px;
   border-radius: 9999px;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 13px;
   transition: all 0.2s ease;
-  border: 1px solid transparent;
+  border: 1px solid #CBD5E1;
+  background: #FFFFFF;
+  color: #334155;
+  cursor: pointer;
 }
 
 .category-tab.active {
-  background: var(--primary);
-  color: white;
-  border-color: var(--primary);
-}
-
-.category-tab:not(.active) {
-  background: var(--surface);
-  color: var(--text-muted);
-  border-color: var(--border);
+  background: #1B3B6F;
+  color: #FFFFFF;
+  border-color: #1B3B6F;
+  box-shadow: 0 4px 10px rgba(27, 59, 111, 0.2);
 }
 
 .category-tab:not(.active):hover {
-  background: #e2e8f0;
-  color: var(--text);
+  border-color: #1D4ED8;
+  color: #1D4ED8;
+  background: #EFF6FF;
 }
 
-/* Floating WhatsApp */
+/* Hide scrollbars on horizontal category strips */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Floating WhatsApp (Positioned cleanly above mobile bottom bar on < 768px) */
 .whatsapp-float {
   position: fixed;
   bottom: 24px;
-  right: 24px;
+  right: 20px;
   z-index: 999;
-  width: 56px;
-  height: 56px;
+  width: 52px;
+  height: 52px;
   background: #25D366;
+  border: 2px solid #FFFFFF;
   border-radius: 9999px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.2);
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .whatsapp-float:hover {
   transform: scale(1.08);
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.15);
+  box-shadow: 0 14px 30px rgba(37, 211, 102, 0.55);
 }
 
-/* Testimonials */
-.testimonial {
-  position: relative;
-}
-
-.testimonial:before {
-  content: '“';
-  position: absolute;
-  top: -10px;
-  left: 24px;
-  font-size: 120px;
-  font-family: serif;
-  color: #e2e8f0;
-  line-height: 1;
-  z-index: -1;
-}
-
-/* Product Modal */
-.modal {
-  animation: modalPop 0.2s cubic-bezier(0.32, 0.72, 0, 1);
-}
-
-@keyframes modalPop {
-  from {
-    opacity: 0;
-    transform: scale(0.96) translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
+@media (max-width: 767px) {
+  .whatsapp-float {
+    bottom: 72px;
+    right: 16px;
+    width: 48px;
+    height: 48px;
   }
 }
 
-/* Dashboard specific styles */
-.dashboard-sidebar {
-  background: #0F172A;
-  color: #e2e8f0;
-}
-
+/* Dashboard Cards */
 .dashboard-card {
-  @apply bg-white border border-slate-200 rounded-2xl p-6 shadow-sm;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
 }
-
-/* Enhanced Responsive Styles */
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 2.75rem;
-    line-height: 1.05;
-  }
-  
-  .nav-link {
-    font-size: 0.95rem;
-  }
-}
-
-@media (max-width: 640px) {
-  .hero-title {
-    font-size: 2.35rem;
-  }
-  
-  .modern-card, .product-card {
-    padding: 1.25rem;
-  }
-}
-
-/* Prevent horizontal overflow globally */
-html, body {
-  overflow-x: hidden;
-}
-
-/* Better table responsiveness already handled per component */

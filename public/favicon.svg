@@ -1,5 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <circle cx="50" cy="50" r="45" fill="#0F766E"/>
-  <circle cx="50" cy="50" r="35" fill="#14B8A6"/>
-  <text x="50" y="58" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle">MB</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <linearGradient id="navyLeft" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1B3B6F"/>
+      <stop offset="100%" stop-color="#1E40AF"/>
+    </linearGradient>
+    <linearGradient id="cyanRight" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00A8E8"/>
+      <stop offset="100%" stop-color="#0284C7"/>
+    </linearGradient>
+    <linearGradient id="sparkOrange" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FF6B35"/>
+      <stop offset="100%" stop-color="#EA580C"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Shield Left & Right -->
+  <path d="M60 8 L18 22 V56 C18 84 36 104 60 113 V8 Z" fill="url(#navyLeft)"/>
+  <path d="M60 8 L102 22 V56 C102 84 84 104 60 113 V8 Z" fill="url(#cyanRight)"/>
+
+  <!-- Inner White Shield Cutout -->
+  <path d="M60 18 L28 29 V55 C28 77 42 93 60 101 C78 93 92 77 92 55 V29 L60 18 Z" fill="#FFFFFF"/>
+
+  <!-- Inner Medical Cross -->
+  <path d="M50 34 H70 V48 H84 V68 H70 V82 H50 V68 H36 V48 H50 V34 Z" fill="#E0F2FE"/>
+  <path d="M50 34 H60 V82 H50 V68 H36 V48 H50 V34 Z" fill="#1B3B6F"/>
+  <path d="M60 34 H70 V48 H84 V68 H70 V82 H60 V34 Z" fill="#00A8E8"/>
+
+  <!-- Diagonal Capsule + Coral Lightning Spark -->
+  <g transform="rotate(-35 60 58)">
+    <rect x="44" y="47" width="32" height="22" rx="11" fill="#FFFFFF" stroke="#1B3B6F" stroke-width="2.5"/>
+    <path d="M44 58 A11 11 0 0 1 55 47 H60 V69 H55 A11 11 0 0 1 44 58 Z" fill="#1B3B6F"/>
+    <path d="M60 47 H65 A11 11 0 0 1 76 58 A11 11 0 0 1 65 69 H60 V47 Z" fill="#00A8E8"/>
+  </g>
+  <path d="M63 40 L49 60 H59 L55 77 L71 56 H61 L63 40 Z" fill="url(#sparkOrange)" stroke="#FFFFFF" stroke-width="1.5" stroke-linejoin="round"/>
 </svg>
