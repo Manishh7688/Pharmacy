@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 80" fill="none">
+  <rect width="220" height="80" rx="14" fill="#FFFFFF"/>
+  <circle cx="38" cy="40" r="22" fill="#F3E8FF"/>
+  <path d="M28 40c0-6 5-11 11-11s11 5 11 11-5 11-11 11" stroke="#7E22CE" stroke-width="4.5" stroke-linecap="round"/>
+  <circle cx="39" cy="40" r="4" fill="#9333EA"/>
+  <text x="70" y="40" font-family="Arial, sans-serif" font-weight="800" font-size="20" fill="#581C87">Dr.Reddy&apos;s</text>
+  <text x="70" y="55" font-family="Arial, sans-serif" font-weight="600" font-size="9.5" fill="#7E22CE" letter-spacing="0.8">GOOD HEALTH CAN&apos;T WAIT</text>
+</svg>

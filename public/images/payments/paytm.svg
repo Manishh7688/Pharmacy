@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 44" fill="none">
+  <rect width="120" height="44" rx="8" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="20" y="28" font-family="Arial, sans-serif" font-weight="900" font-size="20" fill="#002970">Pay</text>
+  <text x="57" y="28" font-family="Arial, sans-serif" font-weight="900" font-size="20" fill="#00BAF2">tm</text>
+  <rect x="85" y="15" width="16" height="14" rx="3" fill="#00BAF2" opacity="0.15"/>
+  <circle cx="93" cy="22" r="3.5" fill="#002970"/>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 44" fill="none">
+  <rect width="120" height="44" rx="8" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="16" y="27" font-family="Arial, sans-serif" font-weight="900" font-size="18" fill="#334155" font-style="italic">BHIM</text>
+  <text x="64" y="27" font-family="Arial, sans-serif" font-weight="900" font-size="18" fill="#0F172A">UPI</text>
+  <path d="M98 14l8 8-8 8" stroke="#EA580C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M104 14l6 8-6 8" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 44" fill="none">
+  <rect width="120" height="44" rx="8" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <rect x="12" y="10" width="24" height="24" rx="6" fill="#1B3B6F"/>
+  <path d="M17 20h14M19 20v8M24 20v8M29 20v8M16 28h16M24 14l8 5H16l8-5z" stroke="#FDE047" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="42" y="22" font-family="Arial, sans-serif" font-weight="800" font-size="11" fill="#1B3B6F">NEFT / RTGS</text>
+  <text x="42" y="32" font-family="Arial, sans-serif" font-weight="600" font-size="8.5" fill="#16A34A">30-DAY CREDIT</text>
+</svg>

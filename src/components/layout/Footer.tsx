@@ -1,15 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { MapPin, Phone, Mail, Clock, Star } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Star, Headphones, ShieldCheck } from "lucide-react";
 import BrandLogo from "@/components/common/BrandLogo";
+import { paymentPartnersData } from "@/components/widgets/PharmaWidgets";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0F172A] text-slate-300 pt-12 pb-24 md:pb-8 border-t border-slate-800">
+    <footer className="bg-[#0F172A] text-slate-300 pt-12 pb-24 md:pb-10 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Top Dentalkart-Style Stats & App/Connect Strip */}
-        <div className="bg-[#1B3B6F] rounded-2xl p-6 sm:p-8 mb-12 text-white flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+        {/* Top Stats & App/Connect Strip */}
+        <div className="bg-gradient-to-r from-[#1B3B6F] via-[#1D4ED8] to-[#0369A1] rounded-2xl p-6 sm:p-8 mb-12 text-white flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 shadow-lg">
           <div className="space-y-1.5">
             <div className="text-xs font-bold uppercase tracking-wider text-[#FDE047]">
               STAY CONNECTED • NORTHEAST B2B PHARMACY NETWORK
@@ -18,7 +19,7 @@ export default function Footer() {
               Serving 250+ Pharmacies &amp; Hospitals Across 8 States
             </h3>
             <p className="text-xs sm:text-sm text-blue-100">
-              Download our daily PTR rate sheet or send your prescription/stock list on WhatsApp.
+              Chat live with our Pharmacist Support Agent or download our daily PTR rate sheet.
             </p>
           </div>
 
@@ -33,17 +34,21 @@ export default function Footer() {
               </div>
               <div className="text-[11px] text-blue-100">Average Rating</div>
             </div>
-            <Link
-              href="/contact"
-              className="btn-orange px-5 py-3 rounded-xl text-xs sm:text-sm font-bold"
+            <button
+              type="button"
+              onClick={() =>
+                window.dispatchEvent(new CustomEvent("open-support-chat", {}))
+              }
+              className="btn-orange px-5 py-3 rounded-xl text-xs sm:text-sm font-bold inline-flex items-center gap-2 cursor-pointer"
             >
-              Dealer Price Bulk Enquiry
-            </Link>
+              <Headphones className="w-4 h-4" />
+              <span>Talk to Live Agent</span>
+            </button>
           </div>
         </div>
 
-        {/* 5-Column Dentalkart Footer Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 pb-12 border-b border-slate-800 text-sm">
+        {/* 5-Column Footer Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 pb-10 border-b border-slate-800 text-sm">
           {/* Col 1: Brand & About */}
           <div className="lg:col-span-3 space-y-3">
             <BrandLogo variant="dark" showInstaBadge={false} size="md" />
@@ -111,8 +116,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/auth/register" className="hover:text-white transition">
-                  Apply for 30-Day Credit Line
+                <Link href="/auth/login" className="hover:text-white transition">
+                  Partner Portal Login
                 </Link>
               </li>
             </ul>
@@ -159,25 +164,54 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Payment Partners & Copyright (Dentalkart Bottom Bar) */}
-        <div className="pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        {/* VISUAL PAYMENT PARTNERS BAR WITH IMAGES & RATING */}
+        <div className="py-6 border-b border-slate-800/80 flex flex-col lg:flex-row items-center justify-between gap-5">
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-300 shrink-0">
+              Our Payment Partners
+            </span>
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              {paymentPartnersData.map((pm) => (
+                <div
+                  key={pm.name}
+                  title={`${pm.name} — ${pm.sub}`}
+                  className="h-9 px-2 rounded-lg bg-white border border-slate-700 flex items-center justify-center shadow-xs hover:scale-105 transition-transform"
+                >
+                  <img
+                    src={pm.logoUrl}
+                    alt={pm.name}
+                    className="h-6 w-auto object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* 4.8 Star Average Online Rating Badge */}
+          <div className="flex items-center gap-3 px-4 py-2 rounded-xl bg-slate-800/90 border border-slate-700">
+            <div className="flex items-center gap-1 px-2 py-0.5 rounded bg-[#16A34A] text-white font-bold text-xs">
+              <span>4.8</span>
+              <Star className="w-3 h-3 fill-white text-white" />
+            </div>
+            <div className="text-xs">
+              <span className="font-bold text-white">Average online rating</span>
+              <span className="text-slate-400 ml-1.5 hidden sm:inline">
+                • 100% Genuine B2B Checkout
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Copyright Bottom Bar */}
+        <div className="pt-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
           <div>
             © 2015–{new Date().getFullYear()}, MAA BHAGWATI PHARMACEUTICALS •
             Crafted with love in India
           </div>
-
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            <span className="text-slate-500 mr-1">Our Payment Partners:</span>
-            {["GPay", "Paytm", "RuPay", "PhonePe", "Visa", "MasterCard", "NEFT/RTGS"].map(
-              (pm) => (
-                <span
-                  key={pm}
-                  className="px-2.5 py-1 rounded bg-slate-800 border border-slate-700 text-slate-200 font-semibold text-[11px]"
-                >
-                  {pm}
-                </span>
-              )
-            )}
+          <div className="flex items-center gap-4">
+            <span className="inline-flex items-center gap-1 text-emerald-400 font-medium">
+              <ShieldCheck className="w-3.5 h-3.5" /> Drug Control Assam Verified
+            </span>
           </div>
         </div>
       </div>

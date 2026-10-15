@@ -5,7 +5,7 @@
   --font-body: var(--font-jakarta), system-ui, -apple-system, sans-serif;
   --font-mono-code: var(--font-mono), monospace;
 
-  /* Dentalkart-Inspired Medical E-Commerce Palette */
+  /* Medical E-Commerce Palette */
   --dk-navy: #1B3B6F;
   --dk-blue: #1D4ED8;
   --dk-blue-dark: #1E3A8A;
@@ -43,7 +43,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Dentalkart Typography Helpers */
+/* Typography Helpers */
 .font-heading {
   font-family: var(--font-poppins), sans-serif;
 }
@@ -57,7 +57,27 @@ body {
   letter-spacing: 0.04em;
 }
 
-/* Dentalkart Clean E-Commerce Card */
+/* Smooth Infinite Marquee Animation for Brand Logos */
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 32s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Clean E-Commerce Card */
 .dk-card {
   background: #FFFFFF;
   border: 1px solid #E2E8F0;
@@ -72,7 +92,7 @@ body {
   box-shadow: 0 14px 28px -6px rgba(29, 78, 216, 0.12);
 }
 
-/* Dentalkart Product Card */
+/* Product Card */
 .product-card {
   background: #FFFFFF;
   border: 1px solid #E2E8F0;
@@ -102,7 +122,7 @@ body {
   box-shadow: 0 12px 24px -6px rgba(29, 78, 216, 0.1);
 }
 
-/* Dentalkart Buttons */
+/* Buttons */
 .btn-primary {
   background: linear-gradient(135deg, #1D4ED8 0%, #1B3B6F 100%);
   color: #FFFFFF;
@@ -147,7 +167,7 @@ body {
   color: #1D4ED8;
 }
 
-/* Dentalkart Badges */
+/* Badges */
 .dk-badge-bestseller {
   background: #FFF7ED;
   color: #C2410C;
@@ -186,7 +206,7 @@ body {
   border-radius: 6px;
 }
 
-/* Dentalkart Search Input & Form Controls */
+/* Search Input & Form Controls */
 .input-modern {
   width: 100%;
   padding: 12px 16px;
@@ -241,38 +261,6 @@ body {
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
-}
-
-/* Floating WhatsApp (Positioned cleanly above mobile bottom bar on < 768px) */
-.whatsapp-float {
-  position: fixed;
-  bottom: 24px;
-  right: 20px;
-  z-index: 999;
-  width: 52px;
-  height: 52px;
-  background: #25D366;
-  border: 2px solid #FFFFFF;
-  border-radius: 9999px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.whatsapp-float:hover {
-  transform: scale(1.08);
-  box-shadow: 0 14px 30px rgba(37, 211, 102, 0.55);
-}
-
-@media (max-width: 767px) {
-  .whatsapp-float {
-    bottom: 72px;
-    right: 16px;
-    width: 48px;
-    height: 48px;
-  }
 }
 
 /* Dashboard Cards */

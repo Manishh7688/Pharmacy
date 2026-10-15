@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" fill="none">
+  <rect width="320" height="240" rx="20" fill="#F8FAFC"/>
+  <rect x="34" y="42" width="252" height="156" rx="14" fill="#FFFFFF" stroke="#FECACA" stroke-width="2.5"/>
+  <rect x="34" y="42" width="252" height="44" rx="14" fill="#DC2626"/>
+  <text x="52" y="69" font-family="Arial, sans-serif" font-weight="800" font-size="14" fill="#FFFFFF">ETHICON • SURGICAL SUTURE</text>
+  <text x="52" y="118" font-family="Arial, sans-serif" font-weight="900" font-size="22" fill="#991B1B">VICRYL PLUS #3-0</text>
+  <text x="52" y="140" font-family="Arial, sans-serif" font-weight="600" font-size="12" fill="#475569">Polyglactin 910 Antibacterial Absorbable Box</text>
+  <rect x="52" y="156" width="124" height="24" rx="6" fill="#FEE2E2"/>
+  <text x="62" y="172" font-family="Arial, sans-serif" font-weight="700" font-size="11" fill="#B91C1C">BOX OF 12 FOILS</text>
+  <path d="M216 164c12-26 30-26 38-6" stroke="#DC2626" stroke-width="4" stroke-linecap="round"/>
+</svg>

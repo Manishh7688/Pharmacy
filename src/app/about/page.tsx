@@ -7,9 +7,7 @@ import {
   Building2,
   Award,
   ThermometerSnowflake,
-  ShieldCheck,
   ArrowRight,
-  Truck,
 } from "lucide-react";
 
 export const metadata = {
@@ -42,7 +40,7 @@ export default function AboutPage() {
     <div className="min-h-screen bg-[#F4F7FB]">
       <Navbar />
 
-      {/* Dentalkart-Style Clean Medical Banner */}
+      {/* Clean Medical Banner */}
       <div className="bg-gradient-to-r from-[#1B3B6F] via-[#1D4ED8] to-[#0284C7] text-white py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 grid md:grid-cols-12 gap-8 items-center">
           <div className="md:col-span-8 space-y-3">
@@ -59,7 +57,7 @@ export default function AboutPage() {
           <div className="md:col-span-4 flex justify-center">
             <div className="bg-white rounded-2xl p-4 shadow-xl border border-blue-100 max-w-xs w-full text-slate-900">
               <img
-                src="https://r2dkmedia.dentalkart.com/backend-media-uploads/HomepageImages/new.jpg?w=512"
+                src="/images/products/surgical-kit.svg"
                 alt="Maa Bhagwati Pharma Inventory"
                 className="w-full h-40 object-contain rounded-xl bg-slate-50 p-2"
               />
@@ -91,7 +89,7 @@ export default function AboutPage() {
                 Founded in 2015 in the commercial heart of Guwahati’s Pan Bazaar, Maa Bhagwati Pharmaceuticals was built to solve the biggest challenge faced by pharmacies and hospitals across Assam and Northeast India: fragmented stock availability and unpredictable delivery timelines.
               </p>
               <p>
-                Inspired by modern clinical e-commerce platforms like Dentalkart, we combine a 5,240+ SKU central warehouse with transparent PTR/PTS wholesale pricing, live batch expiry visibility, and same-day dispatch.
+                Built as a modern digital-first B2B clinical procurement platform, we combine a 5,240+ SKU central warehouse with transparent PTR/PTS wholesale pricing, live batch expiry visibility, and same-day dispatch.
               </p>
               <p>
                 From everyday antibiotics like Dr. Morepen Mormox-CV and chronic cardiac/diabetic medicines to Ethicon surgical sutures and +2°C to +8°C vaccines, we deliver 100% genuine stock straight to your counter.
@@ -124,7 +122,7 @@ export default function AboutPage() {
               {
                 icon: Users,
                 title: "250+ Active B2B Healthcare Partners",
-                sub: "Supplying retail pharmacies, dental & medical clinics, nursing homes, and ICU hospitals.",
+                sub: "Supplying retail pharmacies, medical clinics, nursing homes, and ICU hospitals.",
               },
               {
                 icon: ThermometerSnowflake,

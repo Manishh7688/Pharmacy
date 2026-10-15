@@ -15,104 +15,9 @@ import {
   X,
 } from "lucide-react";
 import {
-  DentalkartProductCard,
-  dentalkartPharmaProducts,
-  WholesaleProduct,
-} from "@/components/widgets/DentalkartWidgets";
-
-const extraProducts: WholesaleProduct[] = [
-  {
-    id: 9,
-    sku: "DK-CAL-500",
-    name: "Dr. Morepen Calcidoc-500 Calcium & Vitamin D3 Tablets (Case Lot)",
-    brand: "Dr. Morepen",
-    category: "OTC & Nutraceuticals",
-    badge: "Best Seller",
-    optionsCount: "Add • 3 Offers",
-    rating: 4.8,
-    reviews: 19,
-    description:
-      "Elemental Calcium 500mg + Cholecalciferol IP tablets for orthopedic and maternal bone mineral density support.",
-    ptrPrice: 420,
-    mrpPrice: 950,
-    discountPercent: "55.79% Off",
-    goldCoins: 10,
-    packSize: "Box of 15x15 Blister",
-    expiry: "Exp: Sep 2028",
-    imageUrl:
-      "https://r2dkmedia.dentalkart.com/media/catalog/product/ctlp/d/r/drmorefwdkjr.jpg?w=512",
-  },
-  {
-    id: 10,
-    sku: "DK-CUR-010",
-    name: "Curatick Oral & Mucosal Wound Dressing Patch (Pack of 10)",
-    brand: "Curatick / Medtech",
-    category: "Surgicals & Consumables",
-    badge: "Best Seller",
-    stockAlert: "Only 6 Packs Left",
-    optionsCount: "Add • 2 Offers",
-    rating: 4.5,
-    reviews: 12,
-    description:
-      "Transparent, Vitamin-E enriched resorbable adhesive wound dressing patch for oral ulcers and post-surgical mucosa.",
-    ptrPrice: 449,
-    mrpPrice: 1200,
-    discountPercent: "62.58% Off",
-    goldCoins: 8,
-    packSize: "Box of 10 Patches",
-    expiry: "Exp: May 2028",
-    imageUrl:
-      "https://r2dkmedia.dentalkart.com/backend-media-uploads/HomepageImages/Gingival-Cuff-Former-Navratri-Mobile-fadeb9.jpg?w=512",
-  },
-  {
-    id: 11,
-    sku: "DK-CAR-401",
-    name: "Telmisartan 40mg + Amlodipine 5mg Antihypertensive Strip Box",
-    brand: "Sun Pharma / Torrent",
-    category: "Cardiovascular",
-    badge: "Popular Choice",
-    optionsCount: "Add • 4 Options",
-    rating: 4.9,
-    reviews: 37,
-    description:
-      "First-line dual antihypertensive therapy for 24-hour blood pressure control in chronic cardiac care patients.",
-    ptrPrice: 780,
-    mrpPrice: 1240,
-    discountPercent: "37.10% Off",
-    goldCoins: 16,
-    packSize: "Box of 10x15 Alu-Alu",
-    expiry: "Exp: Nov 2028",
-    imageUrl:
-      "https://r2dkmedia.dentalkart.com/media/catalog/product/1/a/1artboard_16.jpg?w=512",
-  },
-  {
-    id: 12,
-    sku: "DK-STE-500",
-    name: "Life Steridex Disinfection & Cold Sterilization Soaking Tray (5L)",
-    brand: "Life Steriware",
-    category: "Surgicals & Consumables",
-    badge: "Hot Seller",
-    stockAlert: "Only 5 Units Left",
-    optionsCount: "Add • 1 Offer",
-    rating: 4.7,
-    reviews: 22,
-    description:
-      "Autoclavable soaking tray with perforated inner liner and lid for cold sterilization of hospital & dental instruments.",
-    ptrPrice: 3895,
-    mrpPrice: 11000,
-    discountPercent: "64.59% Off",
-    goldCoins: 60,
-    packSize: "1 Complete 5L Unit",
-    expiry: "5-Year Warranty",
-    imageUrl:
-      "https://r2dkmedia.dentalkart.com/backend-media-uploads/HomepageImages/new.jpg?w=512",
-  },
-];
-
-const allCatalogueProducts: WholesaleProduct[] = [
-  ...dentalkartPharmaProducts,
-  ...extraProducts,
-];
+  PharmaProductCard,
+  wholesalePharmaProducts,
+} from "@/components/widgets/PharmaWidgets";
 
 const categories = [
   "All",
@@ -142,7 +47,7 @@ export default function ProductsPage() {
   const [coldChainOnly, setColdChainOnly] = useState(false);
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
-  const filteredProducts = allCatalogueProducts
+  const filteredProducts = wholesalePharmaProducts
     .filter((product) => {
       const matchesCat =
         activeCategory === "All" || product.category === activeCategory;
@@ -165,7 +70,7 @@ export default function ProductsPage() {
     <div className="min-h-screen bg-[#F4F7FB]">
       <Navbar />
 
-      {/* Dentalkart Category Header & Description Banner */}
+      {/* Category Header & Description Banner */}
       <div className="bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 py-5 sm:py-6">
           <div className="flex flex-wrap items-center gap-2 text-xs text-slate-500 mb-2">
@@ -187,7 +92,7 @@ export default function ProductsPage() {
                 </span>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 mt-1.5 max-w-3xl leading-relaxed">
-                Pharmaceutical formulations and surgical consumables are date-sensitive restock essentials. Every item below lists its pack configuration, verified expiry window, wholesale PTR rate, and Gold Coin trade reward.
+                Click any product below to open its full specification &amp; interactive pack-zoom page, compare volume slabs, and browse similar or recommended wholesale formulations.
               </p>
             </div>
 
@@ -200,9 +105,9 @@ export default function ProductsPage() {
         </div>
       </div>
 
-      {/* Main Dentalkart Category Layout: Left Sidebar Filters + Right Product Grid */}
+      {/* Main Category Layout: Left Sidebar Filters + Right Product Grid */}
       <div className="max-w-7xl mx-auto px-3 sm:px-6 py-5 sm:py-6">
-        {/* Mobile Filter & Sort Toggle Bar (Exact Dentalkart Mobile Category UX) */}
+        {/* Mobile Filter & Sort Toggle Bar */}
         <div className="lg:hidden mb-4 bg-white border border-slate-200 rounded-xl p-2.5 flex items-center justify-between gap-2 shadow-2xs">
           <button
             type="button"
@@ -231,7 +136,7 @@ export default function ProductsPage() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-          {/* LEFT SIDEBAR: DENTALKART "FILTERS BY" PANEL (Collapsible on Mobile, Sticky on Desktop) */}
+          {/* LEFT SIDEBAR: "FILTERS BY" PANEL */}
           <aside
             className={`${
               mobileFiltersOpen ? "block" : "hidden"
@@ -388,7 +293,7 @@ export default function ProductsPage() {
             {filteredProducts.length > 0 ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
                 {filteredProducts.map((product) => (
-                  <DentalkartProductCard key={product.id} product={product} />
+                  <PharmaProductCard key={product.id} product={product} />
                 ))}
               </div>
             ) : (
@@ -414,7 +319,7 @@ export default function ProductsPage() {
               </div>
             )}
 
-            {/* Dentalkart-Style Category Editorial & Buying Guide */}
+            {/* Category Editorial & Buying Guide */}
             <div className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-8 mt-8 space-y-4">
               <h2 className="text-lg sm:text-xl font-bold text-slate-900">
                 Why Buy Wholesale Medicines &amp; Surgical Consumables from Maa Bhagwati Pharmaceuticals?

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 80" fill="none">
+  <rect width="220" height="80" rx="14" fill="#FFFFFF"/>
+  <rect x="14" y="18" width="46" height="44" rx="10" fill="#B91C1C"/>
+  <path d="M37 26L25 52h24L37 26z" stroke="#FFFFFF" stroke-width="4" stroke-linejoin="round"/>
+  <text x="70" y="41" font-family="Arial, sans-serif" font-weight="900" font-size="23" fill="#991B1B" letter-spacing="1">ALKEM</text>
+  <text x="70" y="56" font-family="Arial, sans-serif" font-weight="700" font-size="9.5" fill="#DC2626" letter-spacing="0.8">LABORATORIES LTD</text>
+</svg>

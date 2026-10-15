@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 80" fill="none">
+  <rect width="220" height="80" rx="14" fill="#FFFFFF"/>
+  <rect x="14" y="16" width="48" height="48" rx="12" fill="#1D4ED8"/>
+  <path d="M38 26v28M24 40h28" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="50" cy="28" r="5" fill="#FF6B35"/>
+  <text x="74" y="38" font-family="Arial, sans-serif" font-weight="800" font-size="18" fill="#1B3B6F">DR. MOREPEN</text>
+  <rect x="74" y="45" width="96" height="16" rx="4" fill="#FF6B35"/>
+  <text x="80" y="56" font-family="Arial, sans-serif" font-weight="700" font-size="9.5" fill="#FFFFFF" letter-spacing="0.8">HEALTHCARE LTD</text>
+</svg>

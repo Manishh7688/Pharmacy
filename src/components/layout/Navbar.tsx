@@ -1,13 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import {
   Menu,
   X,
-  Phone,
-  Search,
   MapPin,
   ShoppingCart,
   User,
@@ -15,16 +13,15 @@ import {
   ChevronRight,
   BadgePercent,
   Truck,
-  FileUp,
-  Gift,
   Home,
   Grid,
-  MessageCircle,
   ChevronDown,
+  Headphones,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
 import BrandLogo from "@/components/common/BrandLogo";
+import SmartSearchBar from "@/components/layout/SmartSearchBar";
 
 const subNavLinks = [
   { href: "/products", label: "Category" },
@@ -49,25 +46,18 @@ const quickPincodes = [
 
 export default function Navbar() {
   const pathname = usePathname();
-  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
   const [selectedPin, setSelectedPin] = useState("781001 • Guwahati");
   const [pinModalOpen, setPinModalOpen] = useState(false);
 
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    router.push(
-      searchQuery.trim()
-        ? `/products?q=${encodeURIComponent(searchQuery.trim())}`
-        : "/products"
-    );
+  const openSupportAgent = () => {
+    window.dispatchEvent(new CustomEvent("open-support-chat", {}));
   };
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-white shadow-xs">
-        {/* TIER 1: DENTALKART TOP ANNOUNCEMENT & TRUST BAR */}
+      <header className="sticky top-0 z-40 bg-white shadow-xs">
+        {/* TIER 1: TOP ANNOUNCEMENT & TRUST BAR */}
         <div className="bg-[#1B3B6F] text-white text-[11px] sm:text-xs">
           <div className="max-w-7xl mx-auto px-3 sm:px-6 h-8 sm:h-9 flex items-center justify-between gap-3">
             <div className="flex items-center gap-3 overflow-x-auto no-scrollbar whitespace-nowrap">
@@ -82,9 +72,14 @@ export default function Navbar() {
             </div>
 
             <div className="flex items-center gap-3 sm:gap-5 whitespace-nowrap">
-              <span className="hidden lg:inline text-blue-100">
-                100% Genuine Depot Stock
-              </span>
+              <button
+                type="button"
+                onClick={openSupportAgent}
+                className="inline-flex items-center gap-1.5 text-[#4ADE80] hover:underline font-semibold cursor-pointer"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-[#4ADE80] animate-ping" />
+                <span>Talk to Live Agent (24×7)</span>
+              </button>
               <span className="hidden md:inline text-blue-100">
                 GST Invoice Available
               </span>
@@ -104,16 +99,16 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* TIER 2: MAIN DENTALKART HEADER (LOGO + DELIVERING TO PINCODE + WIDE SEARCH + ACTIONS) */}
+        {/* TIER 2: MAIN HEADER (LOGO + DELIVERING TO PINCODE + SMART MEGA SEARCH + ACTIONS) */}
         <div className="border-b border-slate-200 bg-white">
-          <div className="max-w-7xl mx-auto px-3 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between gap-2.5 sm:gap-5">
-            {/* Left: Brand Logo + Delivering To Pincode (Exact Dentalkart Placement) */}
-            <div className="flex items-center gap-3 sm:gap-5 shrink-0">
+          <div className="max-w-7xl mx-auto px-3 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between gap-2.5 sm:gap-4">
+            {/* Left: Brand Logo + Delivering To Pincode */}
+            <div className="flex items-center gap-3 sm:gap-4 shrink-0">
               <Link href="/" aria-label="Maa Bhagwati Pharmaceuticals Home">
                 <BrandLogo variant="light" showInstaBadge={true} size="md" />
               </Link>
 
-              {/* Dentalkart "Delivering to Enter Pincode" Widget */}
+              {/* "Delivering to Enter Pincode" Widget */}
               <button
                 type="button"
                 onClick={() => setPinModalOpen(!pinModalOpen)}
@@ -132,59 +127,33 @@ export default function Navbar() {
               </button>
             </div>
 
-            {/* Center: Dentalkart Wide Search Bar with Rx/List Quick Button */}
-            <form
-              onSubmit={handleSearch}
-              className="hidden md:flex flex-1 max-w-2xl relative items-center"
-            >
-              <Search className="w-4 h-4 text-slate-400 absolute left-3.5 pointer-events-none" />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search over 5,000+ Wholesale Pharma Products, Dr. Morepen, Sutures..."
-                className="w-full pl-10 pr-36 py-2.5 rounded-xl border-2 border-[#CBD5E1] focus:border-[#1D4ED8] bg-[#F8FAFC] focus:bg-white text-sm text-slate-900 outline-none transition"
-              />
+            {/* Center: Enhanced Smart Search Bar */}
+            <div className="hidden md:flex flex-1 max-w-2xl">
+              <SmartSearchBar isMobile={false} />
+            </div>
+
+            {/* Right: Action Icons (Talk to Agent, Login, Bulk Cart) */}
+            <div className="hidden lg:flex items-center gap-2 shrink-0">
               <button
                 type="button"
-                onClick={() =>
-                  toast.info("Quick Stock List / Rx Upload", {
-                    description:
-                      "Redirecting to bulk prescription & stock sheet upload...",
-                  })
-                }
-                title="Upload Prescription / Bulk Stock List"
-                className="absolute right-22 px-2 py-1 rounded-md text-slate-500 hover:text-[#1D4ED8] hover:bg-blue-50 text-[11px] font-semibold inline-flex items-center gap-1 transition"
+                onClick={openSupportAgent}
+                className="flex items-center gap-2 px-3 py-2 rounded-xl bg-[#EFF6FF] hover:bg-[#DBEAFE] border border-[#BFDBFE] text-xs font-bold text-[#1B3B6F] transition cursor-pointer"
               >
-                <FileUp className="w-3.5 h-3.5 text-[#00A8E8]" />
-                <span className="hidden lg:inline">Rx List</span>
-              </button>
-              <button
-                type="submit"
-                className="absolute right-1.5 top-1.5 bottom-1.5 px-4 rounded-lg bg-[#1D4ED8] hover:bg-[#1B3B6F] text-white text-xs font-semibold transition"
-              >
-                Search
-              </button>
-            </form>
-
-            {/* Right: Dentalkart Action Icons (Call, Login, Bulk Cart) */}
-            <div className="hidden lg:flex items-center gap-2.5 shrink-0">
-              <a
-                href="tel:+919876543210"
-                className="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-slate-100 text-xs font-semibold text-slate-700 transition"
-              >
-                <Phone className="w-4 h-4 text-[#1D4ED8]" />
-                <div className="hidden 2xl:block">
-                  <div className="text-[10px] text-slate-400 leading-none">
-                    Order Desk
-                  </div>
-                  <div>+91 98765 43210</div>
+                <div className="relative">
+                  <Headphones className="w-4 h-4 text-[#1D4ED8]" />
+                  <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-[#16A34A]" />
                 </div>
-              </a>
+                <div className="text-left">
+                  <div className="text-[9px] text-[#1D4ED8] uppercase font-extrabold leading-none">
+                    Live Help
+                  </div>
+                  <div className="text-xs font-bold leading-tight">Talk to Agent</div>
+                </div>
+              </button>
 
               <Link
                 href="/auth/login"
-                className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-slate-200 hover:border-[#1D4ED8] text-xs font-semibold text-slate-700 hover:text-[#1D4ED8] transition"
+                className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-slate-200 hover:border-[#1D4ED8] hover:bg-blue-50/50 text-xs font-semibold text-slate-700 hover:text-[#1D4ED8] transition"
               >
                 <User className="w-4 h-4" />
                 <span>Login</span>
@@ -202,8 +171,17 @@ export default function Navbar() {
               </Link>
             </div>
 
-            {/* Mobile Pincode + Hamburger */}
+            {/* Mobile Pincode + Talk to Agent + Hamburger */}
             <div className="flex lg:hidden items-center gap-1.5">
+              <button
+                type="button"
+                onClick={openSupportAgent}
+                className="p-2 rounded-xl bg-[#EFF6FF] border border-blue-200 text-[#1D4ED8] flex items-center gap-1 text-[11px] font-bold"
+                aria-label="Talk to support agent"
+              >
+                <Headphones className="w-3.5 h-3.5" />
+                <span className="hidden sm:inline">Agent</span>
+              </button>
               <button
                 type="button"
                 onClick={() => setPinModalOpen(!pinModalOpen)}
@@ -224,24 +202,9 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Mobile Search Bar */}
+          {/* Mobile Smart Search Bar */}
           <div className="md:hidden px-3 pb-2.5">
-            <form onSubmit={handleSearch} className="relative flex items-center">
-              <Search className="w-4 h-4 text-slate-400 absolute left-3 pointer-events-none" />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search 5,000+ medicines, Dr. Morepen, sutures..."
-                className="w-full pl-9 pr-20 py-2 rounded-xl border border-slate-300 bg-[#F8FAFC] text-xs text-slate-900 outline-none focus:border-[#1D4ED8]"
-              />
-              <button
-                type="submit"
-                className="absolute right-1 top-1 bottom-1 px-3 rounded-lg bg-[#1D4ED8] text-white text-xs font-semibold"
-              >
-                Search
-              </button>
-            </form>
+            <SmartSearchBar isMobile={true} />
           </div>
         </div>
 
@@ -269,7 +232,7 @@ export default function Navbar() {
                         setPinModalOpen(false);
                         toast.success(`Delivery location set to ${item.area}`);
                       }}
-                      className="px-2.5 py-1 rounded-lg bg-white border border-blue-200 hover:border-[#1D4ED8] text-slate-700 font-semibold text-[11px] transition"
+                      className="px-2.5 py-1 rounded-lg bg-white border border-blue-200 hover:border-[#1D4ED8] text-slate-700 font-semibold text-[11px] transition cursor-pointer"
                     >
                       {item.pin} — {item.area}
                     </button>
@@ -280,7 +243,7 @@ export default function Navbar() {
           )}
         </AnimatePresence>
 
-        {/* TIER 3: DENTALKART SUB-NAVIGATION BAR (Category, Brand, Freebies, Best Sellers, Offers, New Arrivals, Setup) */}
+        {/* TIER 3: SUB-NAVIGATION BAR */}
         <div className="bg-[#F8FAFC] border-b border-slate-200">
           <div className="max-w-7xl mx-auto px-3 sm:px-6 flex items-center justify-between gap-4 overflow-x-auto no-scrollbar h-10 sm:h-11 text-xs font-semibold">
             <div className="flex items-center gap-1 sm:gap-1.5 whitespace-nowrap">
@@ -362,13 +325,16 @@ export default function Navbar() {
                   >
                     Partner Login
                   </Link>
-                  <Link
-                    href="/contact"
-                    onClick={() => setIsOpen(false)}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsOpen(false);
+                      openSupportAgent();
+                    }}
                     className="btn-orange py-2.5 rounded-xl text-center text-xs font-bold"
                   >
-                    Bulk PTR Quote
-                  </Link>
+                    Talk to Agent
+                  </button>
                 </div>
               </div>
             </motion.div>
@@ -376,10 +342,10 @@ export default function Navbar() {
         </AnimatePresence>
       </header>
 
-      {/* DENTALKART-STYLE MOBILE BOTTOM STICKY APP BAR (< 768px) */}
+      {/* MOBILE BOTTOM STICKY APP BAR (< 768px) */}
       <nav
         aria-label="Mobile quick navigation"
-        className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-slate-200 px-2 py-1.5 grid grid-cols-5 gap-1 shadow-[0_-4px_12px_rgba(15,23,42,0.06)]"
+        className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-slate-200 px-2 py-1.5 grid grid-cols-5 gap-1 shadow-[0_-4px_12px_rgba(15,23,42,0.06)]"
       >
         <Link
           href="/"
@@ -399,13 +365,14 @@ export default function Navbar() {
           <Grid className="w-4 h-4 mb-0.5" />
           <span>Catalogue</span>
         </Link>
-        <Link
-          href="/products?filter=freebies"
-          className="flex flex-col items-center justify-center py-1 rounded-lg text-[10px] font-semibold text-[#EA580C]"
+        <button
+          type="button"
+          onClick={openSupportAgent}
+          className="flex flex-col items-center justify-center py-1 rounded-lg text-[10px] font-bold text-[#EA580C]"
         >
-          <Gift className="w-4 h-4 mb-0.5" />
-          <span>Schemes</span>
-        </Link>
+          <Headphones className="w-4 h-4 mb-0.5" />
+          <span>Agent</span>
+        </button>
         <Link
           href="/contact"
           className={`flex flex-col items-center justify-center py-1 rounded-lg text-[10px] font-semibold ${
@@ -416,13 +383,13 @@ export default function Navbar() {
           <span>Bulk Quote</span>
         </Link>
         <Link
-          href="/dashboard"
+          href="/auth/login"
           className={`flex flex-col items-center justify-center py-1 rounded-lg text-[10px] font-semibold ${
-            pathname.startsWith("/dashboard") ? "text-[#1D4ED8]" : "text-slate-500"
+            pathname.startsWith("/auth") ? "text-[#1D4ED8]" : "text-slate-500"
           }`}
         >
           <User className="w-4 h-4 mb-0.5" />
-          <span>Portal</span>
+          <span>Login</span>
         </Link>
       </nav>
     </>
